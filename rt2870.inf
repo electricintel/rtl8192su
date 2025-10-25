@@ -1,0 +1,768 @@
+;****************************************************************************************
+;
+; rt2870.inf
+;
+;   This installation script supports Windows 98,Me,2000 & XP for the
+;   Ralink RT2870 series USB Wireless LAN Card.
+;
+;   Copyright (c)2007 , Ralink Technology Corp., All Rights Reserved
+;   All Rights Reserved.
+;   Developed by RaLink Technology, Corp. -- http://www.ralinktech.com
+;
+;****************************************************************************************
+
+[Version]
+Signature       = "$Chicago$"
+Class           = Net
+ClassGUID       = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider        = %Arcadyan%
+Compatible      = 1
+DriverVer       = 08/24/2007, 1.00.04.0000
+CatalogFile     = rt2870.cat            ;for WHQL certified
+
+[ControlFlags]
+;***********Ralink 802.11 n board  ***********
+;ExcludeFromSelect = USB\VID_148F&PID_2870
+
+[Manufacturer]
+%Ralink%        = Ralink, NTamd64
+%Belkin%        = Belkin, NTamd64
+%SMC%           = SMC, NTamd64
+%Arcadyan%      = Arcadyan, NTamd64
+%philips%       = philips, NTamd64
+%Ativa%      	= Ativa, NTamd64
+
+
+[Ralink.NTamd64]
+; DisplayName               Section                 DeviceID
+; -----------               -------                 --------
+%Generic.DeviceDesc%        = Ralink.ndi,           USB\VID_148F&PID_2870
+%Generic.DeviceDesc%        = Ralink_2770.ndi,      USB\VID_148F&PID_2770
+
+[Belkin.NTamd64]
+; DisplayName               Section                 DeviceID
+; -----------               -------                 --------
+%Belkin.DeviceDesc%         = Belkin.ndi,           USB\VID_050D&PID_8053
+%Belkin.DeviceDesc%         = Belkin_815C.ndi,      USB\VID_050D&PID_815C
+
+[SMC.NTamd64]
+; DisplayName               Section                 DeviceID
+; -----------               -------                 --------
+%SMC.DeviceDesc%            = SMC.ndi,              USB\VID_083A&PID_B522
+
+[Arcadyan.NTamd64]
+; DisplayName               Section                 DeviceID
+; -----------               -------                 --------
+%Arcadyan.DeviceDesc%       = Arcadyan.ndi,         USB\VID_083A&PID_7522
+%Arcadyan.DeviceDesc%       = Arcadyan_7512.ndi,         USB\VID_083A&PID_7512
+
+[philips.NTamd64]
+; DisplayName               Section                 DeviceID
+; -----------               -------                 --------
+%philips.DeviceDesc%        = philips.ndi,          USB\VID_0471&PID_200F
+
+[Ativa.NTamd64]
+; DisplayName               Section                 DeviceID
+; -----------               -------                 --------
+%Ativa.DeviceDesc%          = Ativa.ndi,            USB\VID_050D&PID_8B5A
+
+;*******************************************************************************************
+; Windows 9X specific entries
+;*******************************************************************************************
+
+[Ralink.ndi]
+AddReg                  = USB_148F_2870.ndi.reg, Common.reg, USB9X.ndi.reg
+CopyFiles               = win9x.CopyFiles
+
+[Belkin.ndi]
+AddReg                  = USB_050D_8053.ndi.reg, Common.reg, USB9X.ndi.reg
+CopyFiles               = win9x.CopyFiles
+
+[Belkin_815C.ndi]
+AddReg                  = USB_050D_815C.ndi.reg, Common.reg, USB9X.ndi.reg
+CopyFiles               = win9x.CopyFiles
+
+[SMC.ndi]
+AddReg                  = USB_083A_B522.ndi.reg, Common.reg, USB9X.ndi.reg
+CopyFiles               = win9x.CopyFiles
+
+[Arcadyan.ndi]
+AddReg                  = USB_083A_7522.ndi.reg, Common.reg, USB9X.ndi.reg
+CopyFiles               = win9x.CopyFiles
+
+[Arcadyan_7512.ndi]
+AddReg                  = USB_083A_7512.ndi.reg, Common.reg, USB9X.ndi.reg
+CopyFiles               = win9x.CopyFiles
+
+[philips.ndi]
+AddReg                  = USB_0471_200F.ndi.reg, Common.reg, USB9X.ndi.reg
+CopyFiles               = win9x.CopyFiles
+
+[Ativa.ndi]
+AddReg                  = USB_050D_8B5A.ndi.reg, Common.reg, USB9X.ndi.reg
+CopyFiles               = win9x.CopyFiles
+
+
+;*******************************************************************************************
+; NT specific entries
+;*******************************************************************************************
+
+[Ralink.ndi.NT]
+AddReg                  = Common.reg, RTUSB.ndi.NT.reg
+Characteristics         = 0x84                      ; NCF_REMOVABLE | NCF_HAS_UI | NCF_PHYSICAL
+BusType                 = 15                        ;USB
+CopyFiles               = NT.CopyFiles
+
+[Ralink_2770.ndi.NT]
+AddReg                  = Common.reg, RTUSB.ndi.NT.reg
+Characteristics         = 0x84                      ; NCF_REMOVABLE | NCF_HAS_UI | NCF_PHYSICAL
+BusType                 = 15                        ;USB
+CopyFiles               = NT.CopyFiles
+
+[Belkin.ndi.NT]
+AddReg                  = Common.reg, RTUSB.ndi.NT.reg
+Characteristics         = 0x84                      ; NCF_REMOVABLE | NCF_HAS_UI | NCF_PHYSICAL
+BusType                 = 15                        ;USB
+CopyFiles               = NT.CopyFiles
+
+[Belkin_815C.ndi.NT]
+AddReg                  = Common.reg, RTUSB.ndi.NT.reg
+Characteristics         = 0x84                      ; NCF_REMOVABLE | NCF_HAS_UI | NCF_PHYSICAL
+BusType                 = 15                        ;USB
+CopyFiles               = NT.CopyFiles
+
+[SMC.ndi.NT]
+AddReg                  = Common.reg, RTUSB.ndi.NT.reg
+Characteristics         = 0x84                      ; NCF_REMOVABLE | NCF_HAS_UI | NCF_PHYSICAL
+BusType                 = 15                        ;USB
+CopyFiles               = NT.CopyFiles
+
+[Arcadyan.ndi.NT]
+AddReg                  = Common.reg, RTUSB.ndi.NT.reg
+Characteristics         = 0x84                      ; NCF_REMOVABLE | NCF_HAS_UI | NCF_PHYSICAL
+BusType                 = 15                        ;USB
+CopyFiles               = NT.CopyFiles
+
+[Arcadyan_7512.ndi.NT]
+AddReg                  = Common.reg, RTUSB.ndi.NT.reg
+Characteristics         = 0x84                      ; NCF_REMOVABLE | NCF_HAS_UI | NCF_PHYSICAL
+BusType                 = 15                        ;USB
+CopyFiles               = NT.CopyFiles
+
+[philips.ndi.NT]
+AddReg                  = Common.reg, RTUSB.ndi.NT.reg
+Characteristics         = 0x84                      ; NCF_REMOVABLE | NCF_HAS_UI | NCF_PHYSICAL
+BusType                 = 15                        ;USB
+CopyFiles               = NT.CopyFiles
+
+[Ativa.ndi.NT]
+AddReg                  = Common.reg, RTUSB.ndi.NT.reg
+Characteristics         = 0x84                      ; NCF_REMOVABLE | NCF_HAS_UI | NCF_PHYSICAL
+BusType                 = 15                        ;USB
+CopyFiles               = NT.CopyFiles
+
+
+; NT services sections
+[Ralink.ndi.NT.Services]
+AddService              = rt2870, 2, Generic.Service, common.EventLog
+
+[Ralink_2770.ndi.NT.Services]
+AddService              = rt2870, 2, Generic.Service, common.EventLog
+
+[Belkin.ndi.NT.Services]
+AddService              = rt2870, 2, Generic.Service, common.EventLog
+
+[Belkin_815C.ndi.NT.Services]
+AddService              = rt2870, 2, Generic.Service, common.EventLog
+
+[SMC.ndi.NT.Services]
+AddService              = rt2870, 2, Generic.Service, common.EventLog
+
+[Arcadyan.ndi.NT.Services]
+AddService              = rt2870, 2, Generic.Service, common.EventLog
+
+[Arcadyan_7512.ndi.NT.Services]
+AddService              = rt2870, 2, Generic.Service, common.EventLog
+
+[philips.ndi.NT.Services]
+AddService              = rt2870, 2, Generic.Service, common.EventLog
+
+[Ativa.ndi.NT.Services]
+AddService              = rt2870, 2, Generic.Service, common.EventLog
+
+
+;*******************************************************************************************
+; common regs for NT and W9x
+;*******************************************************************************************
+
+[Common.reg]
+;*******************************************************************************************
+; System Level Property
+
+;
+; Current Profile
+;
+HKR, ,                    CurProfile,      0,""
+HKR, Default,             CurProfile,      0,""
+
+;
+; Radio On/Off
+;
+HKR, ,                            Radio,           0, "0"
+HKR, NDI\params\Radio,            ParamDesc,       0, "Radio On/Off"
+HKR, NDI\params\Radio,            type,            0, "enum"
+HKR, NDI\params\Radio,            default,         0, "0"
+HKR, NDI\params\Radio\enum,       1,               0, "Disable"
+HKR, NDI\params\Radio\enum,       0,               0, "Enable"
+
+;
+; Auto Reconnect Mode
+;
+HKR, ,                                  AutoReconnect,      0, "1"
+HKR, NDI\params\AutoReconnect,          ParamDesc,          0, "Auto Reconnect Mode"
+HKR, NDI\params\AutoReconnect,          type,               0, "enum"
+HKR, NDI\params\AutoReconnect,          default,            0, "1"
+HKR, NDI\params\AutoReconnect\enum,     0,                  0, "Disable"
+HKR, NDI\params\AutoReconnect\enum,     1,                  0, "Enable"
+
+;
+; Show Hidden SSID in Site Survey Page
+;
+HKR, ,                                  ShowHiddenSSID,     0, "0"   ; 0=disable(default), 1=enable
+
+;
+; Country Region G Band
+;
+HKR, ,                                 CountryRegion,      0, "0"
+HKR, NDI\params\CountryRegion,         ParamDesc,          0, "Country Region 11G"
+HKR, NDI\params\CountryRegion,         type,               0, "enum"
+HKR, NDI\params\CountryRegion,         default,            0, "0"
+HKR, NDI\params\CountryRegion\enum,    0,                  0, "(Channel 1 - 11)"
+HKR, NDI\params\CountryRegion\enum,    1,                  0, "(Channel 1 - 13)"
+HKR, NDI\params\CountryRegion\enum,    2,                  0, "(Channel 10 - 11)"
+HKR, NDI\params\CountryRegion\enum,    3,                  0, "(Channel 10 - 13)"
+HKR, NDI\params\CountryRegion\enum,    4,                  0, "(Channel 14)"
+HKR, NDI\params\CountryRegion\enum,    5,                  0, "(Channel 1 - 14)"
+HKR, NDI\params\CountryRegion\enum,    6,                  0, "(Channel 3 - 9)"
+HKR, NDI\params\CountryRegion\enum,    7,                  0, "(Channel 5 - 13)"
+
+;
+; Country Region A Band
+;
+HKR, ,                                 CountryRegionABand, 0, "0"
+HKR, NDI\params\CountryRegionABand,    ParamDesc,          0, "Country Region 11A"
+HKR, NDI\params\CountryRegionABand,    type,               0, "enum"
+HKR, NDI\params\CountryRegionABand,    default,            0, "0"
+HKR, NDI\params\CountryRegionABand\enum,0,                 0, "Ch(36 - 64,149 - 165)"
+HKR, NDI\params\CountryRegionABand\enum,1,                 0, "Ch(36 - 140)"
+HKR, NDI\params\CountryRegionABand\enum,2,                 0, "Ch(36 - 64)"
+HKR, NDI\params\CountryRegionABand\enum,3,                 0, "Ch(52 - 64,149 - 161)"
+HKR, NDI\params\CountryRegionABand\enum,4,                 0, "Ch(149 - 165)"
+HKR, NDI\params\CountryRegionABand\enum,5,                 0, "Ch(149 - 161)"
+HKR, NDI\params\CountryRegionABand\enum,6,                 0, "Ch(36 - 48)"
+HKR, NDI\params\CountryRegionABand\enum,7,                 0, "Ch(36 - 165)"
+HKR, NDI\params\CountryRegionABand\enum,8,                 0, "Ch(52 - 64)"
+
+;*******************************************************************************************
+; Advance Page
+
+;
+; OpMode
+;
+HKR, ,                            OpMode,          0, "0"
+
+;
+; WirelessMode
+;
+HKR, ,                            WirelessMode,    0, "5"
+
+;
+; Enable TX Burst
+;
+HKR, ,                            TXBurst,         0, "0"
+
+;
+; Enable patch for pass wifi 11n draft
+;
+HKR, ,                            TGnWifiTest,         0, "0"
+
+;
+; Use Short Slot Time
+;
+HKR, ,                            ShortSlot,       0, "1"
+
+;
+; Use Turbo rate
+;
+HKR, ,                            TurboRate,       0, "0"
+
+;
+; Use Ofdm rate in adhoc mode
+;
+HKR, ,                            AdhocOfdm,       0, "1"
+
+;
+; Use BG Protection
+;
+HKR, ,                            BGProtection,    0, "0"
+HKR, NDI\params\BGProtection,           ParamDesc, 0, "B/G Protection"
+HKR, NDI\params\BGProtection,           type,      0, "enum"
+HKR, NDI\params\BGProtection,           default,   0, "0"
+HKR, NDI\params\BGProtection\enum,      0,         0, "Auto"
+HKR, NDI\params\BGProtection\enum,      1,         0, "On"
+HKR, NDI\params\BGProtection\enum,      2,         0, "Off"
+
+;
+; FrameAggregation
+;
+HKR, ,                            FrameAggregation,0, "0"
+HKR, NDI\params\FrameAggregation,       ParamDesc, 0, "Frame Aggregation"
+HKR, NDI\params\FrameAggregation,       type,      0, "enum"
+HKR, NDI\params\FrameAggregation,       default,   0, "1"
+HKR, NDI\params\FrameAggregation\enum,  0,         0, "Disable"
+HKR, NDI\params\FrameAggregation\enum,  1,         0, "Enable"
+
+;
+; IEEE80211H
+;
+HKR, ,                            IEEE80211H,      0, "0"
+HKR, NDI\params\IEEE80211H,       ParamDesc,       0, "IEEE802.11h"
+HKR, NDI\params\IEEE80211H,       type,            0, "enum"
+HKR, NDI\params\IEEE80211H,       default,         0, "0"
+HKR, NDI\params\IEEE80211H\enum,  0,               0, "Disable"
+HKR, NDI\params\IEEE80211H\enum,  1,               0, "Enable"
+
+;
+; AutoChannelSelect
+;
+HKR, ,                            AutoChannelSelect,      0, "0"
+HKR, NDI\params\AutoChannelSelect,       ParamDesc,0, "Auto Channel Select"
+HKR, NDI\params\AutoChannelSelect,       type,     0, "enum"
+HKR, NDI\params\AutoChannelSelect,       default,  0, "0"
+HKR, NDI\params\AutoChannelSelect\enum,  0,        0, "Disable"
+HKR, NDI\params\AutoChannelSelect\enum,  1,        0, "Enable"
+
+;
+; WMMCapable
+;
+HKR, ,                            WMMCapable,      0, "1"
+HKR, NDI\params\WMMCapable,             ParamDesc, 0, "WMM Capable"
+HKR, NDI\params\WMMCapable,             type,      0, "enum"
+HKR, NDI\params\WMMCapable,             default,   0, "0"
+HKR, NDI\params\WMMCapable\enum,        0,         0, "Disable"
+HKR, NDI\params\WMMCapable\enum,        1,         0, "Enable"
+
+;
+; APSDCapable
+;
+HKR, ,                            APSDCapable,     0, "0"
+HKR, NDI\params\APSDCapable,            ParamDesc, 0, "APSD Capable"
+HKR, NDI\params\APSDCapable,            type,      0, "enum"
+HKR, NDI\params\APSDCapable,            default,   0, "0"
+HKR, NDI\params\APSDCapable\enum,       0,         0, "Disable"
+HKR, NDI\params\APSDCapable\enum,       1,         0, "Enable"
+
+;
+; APSDAC_BE
+;
+HKR, ,                            APSDAC_BE,       0, "0"
+HKR, NDI\params\APSDAC_BE,              ParamDesc, 0, "AC_BE support APSD"
+HKR, NDI\params\APSDAC_BE,              type,      0, "enum"
+HKR, NDI\params\APSDAC_BE,              default,   0, "0"
+HKR, NDI\params\APSDAC_BE\enum,         0,         0, "Disable"
+HKR, NDI\params\APSDAC_BE\enum,         1,         0, "Enable"
+
+;
+; APSDAC_BK
+;
+HKR, ,                            APSDAC_BK,       0, "0"
+HKR, NDI\params\APSDAC_BK,              ParamDesc, 0, "AC_BK support APSD"
+HKR, NDI\params\APSDAC_BK,              type,      0, "enum"
+HKR, NDI\params\APSDAC_BK,              default,   0, "0"
+HKR, NDI\params\APSDAC_BK\enum,         0,         0, "Disable"
+HKR, NDI\params\APSDAC_BK\enum,         1,         0, "Enable"
+
+;
+; APSDAC_VI
+;
+HKR, ,                            APSDAC_VI,       0, "0"
+HKR, NDI\params\APSDAC_VI,              ParamDesc, 0, "AC_VI support APSD"
+HKR, NDI\params\APSDAC_VI,              type,      0, "enum"
+HKR, NDI\params\APSDAC_VI,              default,   0, "0"
+HKR, NDI\params\APSDAC_VI\enum,         0,         0, "Disable"
+HKR, NDI\params\APSDAC_VI\enum,         1,         0, "Enable"
+
+;
+; APSDAC_VO
+;
+HKR, ,                            APSDAC_VO,       0, "0"
+HKR, NDI\params\APSDAC_VO,              ParamDesc, 0, "AC_VO support APSD"
+HKR, NDI\params\APSDAC_VO,              type,      0, "enum"
+HKR, NDI\params\APSDAC_VO,              default,   0, "0"
+HKR, NDI\params\APSDAC_VO\enum,         0,         0, "Disable"
+HKR, NDI\params\APSDAC_VO\enum,         1,         0, "Enable"
+
+;
+; MaxSPLength
+;
+HKR, ,                            MaxSPLength,     0, "0"
+HKR, Default,                     MaxSPLength,     0, "0"
+HKR, NDI\params\MaxSPLength,      ParamDesc,       0, "Max Service Period Length"
+HKR, NDI\params\MaxSPLength,      type,            0, "int"
+HKR, NDI\params\MaxSPLength,      default,         0, "0"
+HKR, NDI\params\MaxSPLength,      min,             0, "0"
+HKR, NDI\params\MaxSPLength,      max,             0, "3"
+HKR, NDI\params\MaxSPLength,      step,            0, "1"
+HKR, NDI\params\MaxSPLength,      optional,        0, "0"
+
+;
+; DLSCapable
+;
+HKR, ,                            DLSCapable,      0, "0"
+HKR, NDI\params\DLSCapable,             ParamDesc, 0, "DLS Capable"
+HKR, NDI\params\DLSCapable,             type,      0, "enum"
+HKR, NDI\params\DLSCapable,             default,   0, "0"
+HKR, NDI\params\DLSCapable\enum,        0,         0, "Disable"
+HKR, NDI\params\DLSCapable\enum,        1,         0, "Enable"
+
+;
+; RDG
+;
+HKR, ,                            RDG,      0, "1"
+HKR, NDI\params\RDG,                    ParamDesc, 0, "RDG"
+HKR, NDI\params\RDG,                    type,      0, "enum"
+HKR, NDI\params\RDG,                    default,   0, "1"
+HKR, NDI\params\RDG\enum,               0,         0, "Disable"
+HKR, NDI\params\RDG\enum,               1,         0, "Enable"
+
+;
+; AllowBW40InBGBand
+;
+HKR, ,                            AllowBW40InBGBand,      0, "1"
+HKR, NDI\params\AllowBW40InBGBand,      ParamDesc, 0, "AllowBW40InBGBand"
+HKR, NDI\params\AllowBW40InBGBand,      type,      0, "enum"
+HKR, NDI\params\AllowBW40InBGBand,      default,   0, "1"
+HKR, NDI\params\AllowBW40InBGBand\enum, 0,         0, "Disable"
+HKR, NDI\params\AllowBW40InBGBand\enum, 1,         0, "Enable"
+
+;
+; PSP XLink mode
+;
+HKR, ,                            PSPXlink,        0, "0"
+HKR, NDI\params\PSPXlink,         ParamDesc,       0, "PSP Xlink Mode"
+HKR, NDI\params\PSPXlink,         type,            0, "enum"
+HKR, NDI\params\PSPXlink,         default,         0, "0"
+HKR, NDI\params\PSPXlink\enum,    0,               0, "Disable"
+HKR, NDI\params\PSPXlink\enum,    1,               0, "Enable"
+
+;
+; CCX2 control
+;
+HKR, ,                            CCX2Control,     0x00010001, 0x00fa4600
+
+;
+; Block ACK settings
+;
+HKR, ,                            BACapability,      0x10001, "0x07034020"
+HKR, Default,                     BACapability,      0x10001, "0x07034020"
+
+
+;
+; Transmit Rate setting
+;
+HKR, ,                            TransmitSetting,      0x10001, "0x2ba15"
+HKR, Default,                     TransmitSetting,      0x10001, "0x2ba15"
+
+
+;
+; Vendor Description
+;
+HKR, ,                            VendorDesc,      0, %VENDOR_DESC_DEF_STR%
+HKR, Default,                     VendorDesc,      0, %VENDOR_DESC_DEF_STR%
+
+;
+; WPS Device Name
+;
+HKR, ,                            WPSDevName,      0, %WPS_DEVNAME_DEF_STR%
+HKR, Default,                     WPSDevName,      0, %WPS_DEVNAME_DEF_STR%
+
+;*******************************************************************************************
+; Profile
+
+;
+; SSID
+;
+;HKR, ,                            SSID,            0, %SSID_DEF_STR%
+;HKR, Default,                     SSID,            0, %SSID_DEF_STR%
+;HKR, NDI\params\SSID,             ParamDesc,       0, "SSID"
+;HKR, NDI\params\SSID,             type,            0, "edit"
+;HKR, NDI\params\SSID,             limitText,       0, "32"
+;HKR, NDI\params\SSID,             default,         0, %SSID_DEF_STR%
+
+;
+; Network Type
+;
+HKR, ,                            NetworkType,     0, %NETWORK_TYPE_DEF_STR%
+HKR, Default,                     NetworkType,     0, %NETWORK_TYPE_DEF_STR%
+HKR, NDI\params\NetworkType,      ParamDesc,       0, "Network Type"
+HKR, NDI\params\NetworkType,      type,            0, "enum"
+HKR, NDI\params\NetworkType,      default,         0, %NETWORK_TYPE_DEF_STR%
+HKR, NDI\params\NetworkType\enum, 0,               0, "802.11 Ad Hoc"
+HKR, NDI\params\NetworkType\enum, 1,               0, "Infrastructure"
+
+;
+; Channel
+;
+HKR, ,                            Channel,         0, %CHANNEL%
+HKR, Default,                     Channel,         0, %CHANNEL%
+
+
+;*******************************************************************************************
+; System Configuration Page
+
+;
+; Local Administration MAC Network Address
+;
+HKR, ,                            NetworkAddress,  0, ""
+HKR, Default,                     NetworkAddress,  0, ""
+HKR, NDI\params\NetworkAddress,   ParamDesc,       0, "Local Administration MAC Network Address"
+HKR, NDI\params\NetworkAddress,   type,            0, "edit"
+HKR, NDI\params\NetworkAddress,   limitText,       0, "12"
+HKR, NDI\params\NetworkAddress,   default,         0, ""
+
+;
+; Power Saving Mode
+;
+HKR, ,                            PSMode,          0, "0"
+HKR, Default,                     PSMode,          0, "0"
+HKR, NDI\params\PSMode,           ParamDesc,       0, "Power Saving Mode"
+HKR, NDI\params\PSMode,           type,            0, "enum"
+HKR, NDI\params\PSMode,           default,         0, "0"
+HKR, NDI\params\PSMode\enum,      0,               0, "CAM (Constantly Awake Mode)"
+HKR, NDI\params\PSMode\enum,      1,               0, "Max_PSP (Max Power Savings)"
+HKR, NDI\params\PSMode\enum,      2,               0, "Fast_PSP (Power Save Mode)"
+
+;
+; CAM when AC Power
+;
+HKR, ,                            ACPowerCam,      0, "0"
+HKR, Default,                     ACPowerCam,      0, "0"
+HKR, NDI\params\ACPowerCam,       ParamDesc,       0, "CAM when AC Power"
+HKR, NDI\params\ACPowerCam,       type,            0, "enum"
+HKR, NDI\params\ACPowerCam,       default,         0, "0"
+HKR, NDI\params\ACPowerCam\enum,  0,               0, "Disable"
+HKR, NDI\params\ACPowerCam\enum,  1,               0, "Enable"
+
+;
+; Preamble Type
+;
+HKR, ,                            PreambleType,    0, "0"
+HKR, Default,                     PreambleType,    0, "0"
+
+;
+; RTS Threshold
+;
+HKR, ,                            RTSThresh,       0, "2347"
+HKR, Default,                     RTSThresh,       0, "2347"
+HKR, NDI\params\RTSThresh,        ParamDesc,       0, "RTS Threshold"
+HKR, NDI\params\RTSThresh,        type,            0, "int"
+HKR, Ndi\params\RTSThresh,        default,         0, "2347"
+HKR, NDI\params\RTSThresh,        min,             0, "0"
+HKR, NDI\params\RTSThresh,        max,             0, "2347"
+HKR, NDI\params\RTSThresh,        step,            0, "1"
+HKR, NDI\params\RTSThresh,        optional,        0, "0"
+
+;
+; Fragment Threshold
+;
+HKR, ,                            FragThresh,      0, "2346"
+HKR, Default,                     FragThresh,      0, "2346"
+HKR, NDI\params\FragThresh,       ParamDesc,       0, "Fragment Threshold"
+HKR, NDI\params\FragThresh,       type,            0, "int"
+HKR, Ndi\params\FragThresh,       default,         0, "2346"
+HKR, NDI\params\FragThresh,       min,             0, "256"
+HKR, NDI\params\FragThresh,       max,             0, "2346"
+HKR, NDI\params\FragThresh,       step,            0, "1"
+HKR, NDI\params\FragThresh,       optional,        0, "0"
+
+;*******************************************************************************************
+; Authentication & Security Page
+
+;
+; Authentication Type
+;
+HKR, ,                AuthenType,      0, "0" ; Open System
+HKR, Default,         AuthenType,      0, "0"
+
+;
+; Encryption
+;
+HKR, ,                Encryption,      0, "1" ; Disable
+HKR, Default,         Encryption,      0, "1"
+
+;
+; WEP Keys Length
+;
+HKR, ,                WEPKeyLen,       0, "0"
+HKR, Default,         WEPKeyLen,       0, "0"
+
+;
+; WEP Key to use
+;
+HKR, ,                WEPKeyUse,       0,"1"
+HKR, Default,         WEPKeyUse,       0,"1"
+
+;
+; WEP Key1
+;
+HKR, ,                WEPKey1,         0,""
+HKR, Default,         WEPKey1,         0,""
+
+;
+; WEP Key2
+;
+HKR, ,                WEPKey2,         0,""
+HKR, Default,         WEPKey2,         0,""
+
+;
+; WEP Key3
+;
+HKR, ,                WEPKey3,         0,""
+HKR, Default,         WEPKey3,         0,""
+
+;
+; WEP Key4
+;
+HKR, ,                WEPKey4,         0,""
+HKR, Default,         WEPKey4,         0,""
+
+[RemoveFlag.reg]
+HKR, ,                SafelyRemoveOff,    0, "1"
+
+;*******************************************************************************************
+; DeviceID for Win9X 
+;*******************************************************************************************
+[USB_148F_2870.ndi.reg]
+HKR, Ndi,                         DeviceID,        0, "USB\VID_148F&PID_2870"
+
+[USB_148F_2770.ndi.reg]
+HKR, Ndi,                         DeviceID,        0, "USB\VID_148F&PID_2770"
+
+[USB_050D_8053.ndi.reg]
+HKR, Ndi,                         DeviceID,         0, "USB\VID_050D&PID_8053"
+
+[USB_050D_815C.ndi.reg]
+HKR, Ndi,                         DeviceID,         0, "USB\VID_050D&PID_815C"
+
+[USB_083A_B522.ndi.reg]
+HKR, Ndi,                         DeviceID,         0, "USB\VID_083A&PID_B522"
+
+[USB_083A_7522.ndi.reg]
+HKR, Ndi,                         DeviceID,         0, "USB\VID_083A&PID_7522"
+
+[USB_083A_7512.ndi.reg]
+HKR, Ndi,                         DeviceID,         0, "USB\VID_083A&PID_7512"
+
+[USB_0471_200F.ndi.reg]
+HKR, Ndi,                         DeviceID,         0, "USB\VID_0471&PID_200F"
+
+[USB_050D_8B5A.ndi.reg]
+HKR, Ndi,                         DeviceID,         0, "USB\VID_050D&PID_8B5A"
+
+
+[USB9X.ndi.reg]
+HKR, ,                            NTMPDriver,       0, rt28709x.sys
+
+HKR, ,                            BusType,          0, 15
+HKR, NDI,                         CardType,         0, "PNP"
+
+HKR, ,                            RunningWin9X,     0, "1"
+HKR, ,                            DevLoader,        0, "*ndis"
+HKR, ,                            DeviceVxDs,       0, "rt28709x.sys"
+HKR, ,                            EnumPropPages,    0, "netdi.dll,EnumPropPages"
+
+HKR, Ndi\Interfaces,              DefUpper,         0, "ndis3"
+HKR, Ndi\Interfaces,              DefLower,         0, "ethernet"
+HKR, Ndi\Interfaces,              UpperRange,       0, "ndis3"
+HKR, Ndi\Interfaces,              LowerRange,       0, "ethernet"
+
+HKR, NDIS,                        LogDriverName,    0, "rt28709x"
+HKR, NDIS,                        MajorNdisVersion, 1, 03
+HKR, NDIS,                        MinorNdisVersion, 1, 0A
+
+;*******************************************************************************************
+; DestinationDirs
+;*******************************************************************************************
+
+[DestinationDirs]
+NT.CopyFiles            = 12    ; system32\drivers subdirectory on NT
+win9x.CopyFiles         = 11    ; system32 subdirectory on win9x
+
+[NT.CopyFiles]
+rt2870.sys                       ; NT Installation
+
+[win9x.CopyFiles]
+rt28709x.sys                     ;  Win9x Installation
+
+[SourceDisksNames]
+1                       = %INSTALL_DISK_STR%,,,
+
+[SourceDisksFiles] 
+rt2870.sys              = 1
+rt28709x.sys            = 1
+
+;*******************************************************************************************
+; NT specific
+;*******************************************************************************************
+[RTUSB.ndi.NT.reg]
+HKR, Ndi,                   Service,            0, "rt2870"
+HKR, Ndi\Interfaces,        UpperRange,         0, "ndis5"
+HKR, Ndi\Interfaces,        LowerRange,         0, "ethernet"
+
+[Generic.Service]
+DisplayName                 = %Generic.Service.DispName%
+ServiceType                 = 1                             ;%SERVICE_KERNEL_DRIVER%
+StartType                   = 3                             ;%SERVICE_AUTO_START%
+ErrorControl                = 1                             ;%SERVICE_ERROR_NORMAL%
+ServiceBinary               = %12%\rt2870.sys
+LoadOrderGroup              = NDIS
+
+[common.EventLog]
+AddReg=common.AddEventLog.reg
+
+[common.AddEventLog.reg]
+HKR, , EventMessageFile, 0x00020000, "%%SystemRoot%%\System32\netevent.dll,%%SystemRoot%%\System32\drivers\rt2870.sys"
+HKR, , TypesSupported,   0x00010001, 7
+
+;*******************************************************************************************
+; Strings
+;*******************************************************************************************
+[strings]
+Ralink                      = "Ralink Technology, Corp."
+Belkin                      = "Belkin International, Inc."
+SMC                         = "SMC Networks, Inc."
+Arcadyan                    = "Arcadyan Technology Corporation"
+philips                     = "Philips Consumer Electronics BV"
+Ativa			    = "Ativa"
+
+Generic.DeviceDesc          = "802.11n USB Wireless LAN Card"
+Belkin.DeviceDesc           = "Belkin F5D8053 N Wireless USB Adapter"
+SMC.DeviceDesc              = "EZ Connect N Draft 11n Wireless USB2.0 Adapter"
+Arcadyan.DeviceDesc         = "802.11N Wireless USB Adapter"
+philips.DeviceDesc          = "Philips 802.11n Wireless USB Adapter"
+Ativa.DeviceDesc            = "Ativa Wireless N USB Adapter"
+
+
+INSTALL_DISK_STR            = "Wireless 11n USB Installation Disk"
+
+Generic.Service.DispName     = "Ralink 802.11n USB Wireless LAN Card Driver"
+
+;
+; Don't put spaces around=sign otherwise installer will not be able to
+; find these lines.
+; SSID_DEF_STR                = ""
+VENDOR_DESC_DEF_STR         = "IEEE 802.11n Wireless Card."
+NETWORK_TYPE_DEF_STR        = "1"
+CHANNEL                     = "1"
+WPS_DEVNAME_DEF_STR         = "Ralink Client"
+
